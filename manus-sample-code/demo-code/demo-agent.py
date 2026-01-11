@@ -60,7 +60,7 @@ class ReActAgent:
         # 初始化用户信息
         self.messages.append({"role": "user", "content": query})
 
-        print(f"\n[DEBUG] available_tools:\n{json.dumps(available_tools, ensure_ascii=False, indent=2)}")
+        # print(f"\n[DEBUG] available_tools:\n{json.dumps(available_tools, ensure_ascii=False, indent=2)}")
 
         # 调用deepseek模型获取响应内容
         response = self.openai.chat.completions.create(
@@ -77,7 +77,11 @@ class ReActAgent:
         # 判断模型是否决定调用工具
         if tool_calls:
             # 将模型回复添加到历史
+            print(f"\nresponse_message:\n{response_message}")
+            print(f"\nresponse_message.model_dump():\n{response_message.model_dump()}")
+            print(f"\nself.messages:\n{self.messages}")
             self.messages.append(response_message.model_dump())
+            print(f"\nself.messages:\n{self.messages}")
 
             # 执行工具调用
             for tool_call in tool_calls:
