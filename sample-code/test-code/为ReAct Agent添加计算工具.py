@@ -68,6 +68,8 @@ class ReActAgent:
         # 将模型第一次回复添加到历史消息中
         self.messages.append(response_message.model_dump())
         print("\nself.messages: ", self.messages)
+        
+        print("\ntool_calls: ", tool_calls.__str__())
 
         # 判断是否执行工具调用
         if tool_calls:
