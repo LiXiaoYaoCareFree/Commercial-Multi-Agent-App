@@ -6,6 +6,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "dotenv>=0.9.9",
+    "keyboard>=0.13.5",
     "openai>=2.15.0",
     "pydantic[email]>=2.12.5",
+    "sounddevice>=0.5.3",
+    "soundfile>=0.13.1",
 ]
