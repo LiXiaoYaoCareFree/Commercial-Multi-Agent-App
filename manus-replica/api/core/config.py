@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    """MoocManus后端中控配置信息，从.env或者环境变量中加载数据"""
+    """manus-replica后端中控配置信息，从.env或者环境变量中加载数据"""
 
     # 项目基础配置
     env: str = "development"
@@ -50,6 +50,6 @@ class Settings(BaseSettings):
 # 函数生命周期内无论调用多少次只执行一次
 @lru_cache()
 def get_settings() -> Settings:
-    """获取当前MoocManus项目的配置信息，并对内容进行缓存，避免重复读取"""
+    """获取当前manus-replica项目的配置信息，并对内容进行缓存，避免重复读取"""
     settings = Settings()
     return settings

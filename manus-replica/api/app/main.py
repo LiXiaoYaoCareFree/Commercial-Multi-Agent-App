@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 from app.infrastructure.logging import setup_logging
+from app.interfaces.errors.exception_handlers import register_exception_handlers
 from core.config import get_settings
 from app.interfaces.endpoints.routes import router
 
@@ -29,7 +30,7 @@ openapi_tags = [
 async def lifespan(app: FastAPI):
     """创建FastAPI应用生命周期上下文管理器"""
     # 1.日志打印代码已经开始执行了
-    logger.info("MoocManus正在初始化")
+    logger.info("manus-replica正在初始化")
 
     # 2.初始化Redis/Postgres/Cos客户端
     # await get_redis().init()
@@ -44,12 +45,12 @@ async def lifespan(app: FastAPI):
         # await get_redis().shutdown()
         # await get_postgres().shutdown()
         # await get_cos().shutdown()
-        logger.info("MoocManus正在关闭")
+        logger.info("manus-replica正在关闭")
 
-# 4.创建MoocManus应用实例
+# 4.创建manus-replica应用实例
 app = FastAPI(
-    title="MoocManus通用智能体",
-    description="MoocManus是一个通用的AI Agent系统，可以完全私有部署，使用A2A+MCP连接Agent/Tool，同时支持在沙箱中运行各种内置工具和操作",
+    title="manus-replica通用智能体",
+    description="manus-replica是一个通用的AI Agent系统，可以完全私有部署，使用A2A+MCP连接Agent/Tool，同时支持在沙箱中运行各种内置工具和操作",
     lifespan=lifespan,
     openapi_tags=openapi_tags,
     version="1.0.0",
@@ -65,7 +66,7 @@ app.add_middleware(
 )
 
 # 6.注册错误处理器
-# register_exception_handlers(app)
+register_exception_handlers(app)
 
 # 7.集成路由
 app.include_router(router, prefix="/api")
