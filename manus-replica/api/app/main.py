@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 from app.infrastructure.logging import setup_logging
+from app.infrastructure.storage.redis import get_redis
 from app.interfaces.errors.exception_handlers import register_exception_handlers
 from core.config import get_settings
 from app.interfaces.endpoints.routes import router
@@ -33,7 +34,7 @@ async def lifespan(app: FastAPI):
     logger.info("manus-replica正在初始化")
 
     # 2.初始化Redis/Postgres/Cos客户端
-    # await get_redis().init()
+    await get_redis().init()
     # await get_postgres().init()
     # await get_cos().init()
 
@@ -42,7 +43,7 @@ async def lifespan(app: FastAPI):
         yield
     finally:
         # 4.应用关闭时执行
-        # await get_redis().shutdown()
+        await get_redis().shutdown()
         # await get_postgres().shutdown()
         # await get_cos().shutdown()
         logger.info("manus-replica正在关闭")
