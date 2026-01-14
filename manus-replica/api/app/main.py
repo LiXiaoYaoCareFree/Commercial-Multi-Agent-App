@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 from app.infrastructure.logging import setup_logging
+from app.infrastructure.storage.cos import get_cos
 from app.infrastructure.storage.postgres import get_postgres
 from app.infrastructure.storage.redis import get_redis
 from app.interfaces.errors.exception_handlers import register_exception_handlers
@@ -37,7 +38,7 @@ async def lifespan(app: FastAPI):
     # 2.初始化Redis/Postgres/Cos客户端
     await get_redis().init()
     await get_postgres().init()
-    # await get_cos().init()
+    await get_cos().init()
 
     try:
         # 3.lifespan分界点
@@ -46,7 +47,7 @@ async def lifespan(app: FastAPI):
         # 4.应用关闭时执行
         await get_redis().shutdown()
         await get_postgres().shutdown()
-        # await get_cos().shutdown()
+        await get_cos().shutdown()
         logger.info("manus-replica正在关闭")
 
 # 4.创建manus-replica应用实例
