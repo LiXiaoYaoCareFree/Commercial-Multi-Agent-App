@@ -1,6 +1,6 @@
 import mesop as me
 
-from state.state import AppState, StateMessage
+from ..state.state import AppState, StateMessage
 
 
 @me.component

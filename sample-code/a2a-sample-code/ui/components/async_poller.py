@@ -4,7 +4,7 @@ from typing import Any
 
 import mesop.labs as mel
 
-from state.state import AppState
+from ..state.state import AppState
 
 
 @dataclass

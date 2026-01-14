@@ -2,8 +2,8 @@ import os
 
 import mesop as me
 
-from state.host_agent_service import UpdateApiKey
-from state.state import AppState
+from ..state.host_agent_service import UpdateApiKey
+from ..state.state import AppState
 
 from .dialog import dialog, dialog_actions
 

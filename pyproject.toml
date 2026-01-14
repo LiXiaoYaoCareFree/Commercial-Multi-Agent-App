@@ -5,11 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "a2a>=0.44",
     "dotenv>=0.9.9",
     "fastapi>=0.128.0",
     "jinja2>=3.1.6",
     "keyboard>=0.13.5",
+    "mcp>=1.25.0",
+    "mesop>=1.2.0",
     "openai>=2.15.0",
+    "pandas>=2.3.3",
+    "pydantic-settings>=2.12.0",
     "pydantic[email]>=2.12.5",
     "sounddevice>=0.5.3",
     "soundfile>=0.13.1",

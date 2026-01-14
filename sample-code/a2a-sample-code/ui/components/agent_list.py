@@ -2,7 +2,7 @@ import mesop as me
 import pandas as pd
 from typing import Any
 
-from state.agent_state import AgentEntry, AgentState
+from ..state.agent_state import AgentEntry, AgentState
 
 
 @me.component
