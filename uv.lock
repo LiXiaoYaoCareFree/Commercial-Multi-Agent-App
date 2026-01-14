@@ -301,6 +301,7 @@ dependencies = [
     { name = "soundfile" },
     { name = "sqlalchemy" },
     { name = "transformers" },
+    { name = "uuid" },
     { name = "uvicorn", extra = ["standard"] },
     { name = "werkzeug" },
 ]
@@ -324,6 +325,7 @@ requires-dist = [
     { name = "soundfile", specifier = ">=0.13.1" },
     { name = "sqlalchemy", specifier = ">=2.0.45" },
     { name = "transformers", specifier = ">=4.57.5" },
+    { name = "uuid", specifier = ">=1.30" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.40.0" },
     { name = "werkzeug", specifier = ">=3.1.5" },
 ]
@@ -4792,6 +4794,12 @@ sdist = { url = "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6
 wheels = [
     { url = "https://files.pythonhosted.org/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl", hash = "sha256:bf272323e553dfb2e87d9bfd225ca7b0f467b919d7bbd355436d3fd37cb0acd4", size = 131584, upload-time = "2026-01-07T16:24:42.685Z" },
 ]
+
+[[package]]
+name = "uuid"
+version = "1.30"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ce/63/f42f5aa951ebf2c8dac81f77a8edcc1c218640a2a35a03b9ff2d4aa64c3d/uuid-1.30.tar.gz", hash = "sha256:1f87cc004ac5120466f36c5beae48b4c48cc411968eed0eaecd3da82aa96193f", size = 5811, upload-time = "2007-05-26T11:13:24Z" }
 
 [[package]]
 name = "uvicorn"
