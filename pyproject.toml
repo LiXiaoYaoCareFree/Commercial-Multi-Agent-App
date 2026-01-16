@@ -8,6 +8,7 @@ dependencies = [
     "a2a>=0.44",
     "asyncpg>=0.31.0",
     "cos-python-sdk-v5>=1.9.41",
+    "cozepy>=0.20.0",
     "dotenv>=0.9.9",
     "fastapi>=0.128.0",
     "httpx>=0.28.1",
